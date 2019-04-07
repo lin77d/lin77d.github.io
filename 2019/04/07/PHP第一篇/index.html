@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>PHP第一篇 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Url地址：   格式：http：//host[:post][abs_path]          host表示合法的internet主机域名或IP地址          Port:指定一个端口号，可以省略默认80          Abs_path：被请求资源的位置        dns服务器：  X.X.X.X(IP地址）    www..com     软件：wampserver基本语法：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP第一篇">
+<meta property="og:url" content="http://yoursite.com/2019/04/07/PHP第一篇/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Url地址：   格式：http：//host[:post][abs_path]          host表示合法的internet主机域名或IP地址          Port:指定一个端口号，可以省略默认80          Abs_path：被请求资源的位置        dns服务器：  X.X.X.X(IP地址）    www..com     软件：wampserver基本语法：">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-07T11:13:06.075Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP第一篇">
+<meta name="twitter:description" content="Url地址：   格式：http：//host[:post][abs_path]          host表示合法的internet主机域名或IP地址          Port:指定一个端口号，可以省略默认80          Abs_path：被请求资源的位置        dns服务器：  X.X.X.X(IP地址）    www..com     软件：wampserver基本语法：">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-PHP第一篇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/07/PHP第一篇/" class="article-date">
+  <time datetime="2019-04-07T08:37:58.000Z" itemprop="datePublished">2019-04-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP第一篇
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Url地址：<br>   格式：http：//host[:post][abs_path]<br>          host表示合法的internet主机域名或IP地址<br>          Port:指定一个端口号，可以省略默认80<br>          Abs_path：被请求资源的位置<br>        dns服务器：  X.X.X.X(IP地址）    www.<strong><strong>.com<br>     软件：wampserver<br>基本语法：<br>   一。初始PHP基本程序<br>     php开始标记：&lt;?php  结束：?&gt;<br>     页面最终是通过html,css,js来展示；可以直接嵌入到html中<br>echo:输出<br>指令分隔符“；”<br>   每个语句后要加分号（文件末尾可以省略）<br>注释：<br>  与C相同<br>空白的处理：<br>  空格 tab制表符 换行  都是无关紧要  合理运用增强代码阅读性<br>二.变量<br>         用于临时（程序运行过程中才存在）存储值（数据）的容器<br>         变量用于存储数字  文本字符串或者数组<br>         $变量名=数据（值）<br>         赋值操作符：“=”<br>      变量的销毁：<br>          unset($变量名称)<br>          $and1=1;<br>          unset($and1);<br>          echo $and1;  //提示出错，变量已经被销毁<br>      变量的命名：<br>（1）变量名称严格区分大小写<br>（2）字母或下划线开头 ，不能以数字开头，中间不能有空格 $a任意数量的字母，数字，下划线<br>（3）最好不要用一些关键字作为变量名称（因为在其它编程语言里完全不被允许）<br>可变变量<br>   $abcd=’1’;<br>   $$abcd=’2’;//$abcd=’2’;<br> 变量引用赋值：<br>    $a=100;<br>    $b=&amp;$a;//操作其中任何一个，都会影响另外一个变量的值<br>    $b=200;<br>    echo $a;<br>三．变量类型<br>          使用var_dump（）可以输出变量的类型<br>          指保存在该变量中的数据类型<br>        变量类型简介：<br>1.bool(布尔型）<br>   往变量里面存ture（真）或flase（假）<br>   以下值被认为是false，其他值都是被认为是ture<br>1)布尔值<br>2)0<br>3)浮点型0.0<br>4)空白字符串和字符串0<br>2.int(整型）<br>3.flaot(浮点型，也称double）<br>4.string(字符串）<br>单引号：在定义一些简单的字符串的时候效率比较高<br>双引号：其中的变量名会被变量值所替代<br>定界符：&lt;&lt;&lt;不能以数字开始&lt;&lt;&lt;<br>5.数组：array<br>6.对象：object<br>7.资源：resource<br>8.NULL<br>变量未声明或未赋值就为空或被销毁的变量<br>    四.常量<br>        概念：用于临时（程序运行过程中才存在）存储值（数据）的容器<br>        定义和使用：<br>             define(‘常量名称’，常量值)或者define(“常量名称”，常量值)<br>          命名：<br>              和常量一样 字母或下划线开头 ，不能以数字开头，中间不能有空格<br>              按照惯例常量名字总是大写的<br>          define()函数检查是否定义了某个常量<br>       常量与变量的区别：<br>1）常量前面没有美元符号($)<br>2）常量只能用define()函数定义，不能通过赋值语句<br>3）***</strong></strong>常量可以不用理会变量范围的规则而在任何地方定义和使用<br>4）常量一旦被定义就不能被重新定义或者取消定义<br>5）常量的值只能是bool,int,float,string类型<br>      预定义常量（PHP内已经帮我们定义好了的常量）<br>             其中有的预定义常量是以__开头的，这些又叫魔术常量<br>                 代码所在的位置不同它的值也是不同的，所以叫魔术常量<br>             八个魔术常量：<a href="http://php.net/manual/zh/language.constants.predefined.php" target="_blank" rel="noopener">http://php.net/manual/zh/language.constants.predefined.php</a><br>             预定义常量是不区分大小写的<br>  五。运算符<br>      概述：一些符号，这些符号可以将变量或者数据执行某种运算<br>1.算数运算符<br>1）“+”   加号<br>2）“-”   减号或取反（取反并不影响被取反变量本身的值<br>3）“<em>”   乘号<br>4）“%”   取余<br>5）“++”  自增   $a++(运行后自增）  ++$a（先自增再运行）<br>6）“–”   自减   $a–(运行后自减）  ++$a（先自减再运行）<br>2.字符串运算符<br>1）“.”    连接运算符（连接字符串）<br>3.赋值操作符<br>“=” （将右边的值赋给左边的变量）（+=，-=，</em>=，/=，%=，.=)<br>+=: $a+=$b;//$a=$a+$b<br>-=: $a-=$b;//$a=$a-$b<br><em>=: $a</em>=$b;//$a=$a*$b（其余类似）<br>4.比较运算符<br>   概念：对操作数（按照比较运算符的要求，规则）进行比较，如果比较出的结果满足比较运算符的要求那么结果就是true（真，成立），否则就是false（假，不成立）<br>PHP中规定：<br>      使用echo输出布尔类型值的时候<br>       echo true;它在页面会输出1<br>       echo false；它会在页面中什么都不输出<br>1）“==”  值是否相等<br>2）“===” 全等（值要相等，类型也要相同）<br>3）“！=” 值是否不相等<br>4）“&lt;&gt;”   同上<br>5）“！==” 不全等<br>6）“&lt;”  小于（前面的是否小于后面的）<br>7）“&gt;” 大于<br>8）“&lt;=”小于等于<br>9）“&gt;=”大于等于<br>5.逻辑运算符<br>   概念：对表达式进行逻辑运算，运算出的结果是布尔类型的值（ture,false)<br>   要求：参与逻辑运算的表达式的值是布尔类型的值，如果不是会被PHP自动转换<br>1）逻辑与<br>   and 或者 &amp;&amp;(左右两边都为ture,否则false)<br>逻辑运算符：与比较运算符相似，满足结果输出true，否则输出false。<br>2）逻辑或<br>or 或  ||（左右两边一个为true，就输出true，全为false,才输出false）<br>3)逻辑亦或<br>Xor(左右不一样输出true，一样输出false)<br>4)逻辑非<br>！(否定当前值)<br>6.位运算符：主要用于网站开发，在PHP中用的很少。<br>7.其他运算符<br>? :： 格式：表达式1？表达式2：表达式3；，如果表达式1的值为true就执行表达式2，表达式1的值为false就执行表达式3<br>‘  ’：可以把系统的命令放在里面执行，例：$a=’ipconfig’；，涉及跨平台。</p>
+<p>@：屏蔽表达式可能发生的错误<br>=&gt;、-&gt;、instanceof 面向数组和对象使用。<br>运算符的优先级：<br>优先级归纳：[结合方向（从哪个方向算）]运算符，由高到低（有括号先算括号内的，括号内看成一个整体）<br>六.流程控制：<br>1.if语句<br>例：<br>&lt;?php<br>$a=91;<br>$grade1=60;<br>if($a&lt;$grade1){<br>    echo’不及格’;<br>}<br>else{<br>    echo’及格’;<br>}<br>?&gt;<br>if、elseif、else等可相互嵌套，与C大差不差。</p>
+<p>2.switch语句<br>例：<br>&lt;?php<br>$a=3;<br>switch($a){//括号内是表达式<br>    case 1:<br>        echo’今天星期一’;//输出<br>        break;//结束<br>    case 2:<br>        echo’今天星期二’;<br>        break;<br>    case 2:<br>        echo’今天星期二’;<br>        break;<br>    case 3:<br>        echo’今天星期三’;<br>        break;<br>    case 4:<br>        echo’今天星期四’;<br>        break;<br>    case 5:<br>        echo’今天星期五’;<br>        break;<br>    case 6:<br>        echo’今天星期六’;<br>        break;<br>    case 7:<br>        echo’今天星期日’;<br>        break;<br>    default://上述情况都不是<br>        echo’无法匹配’;<br>}<br>?&gt;//最终输出今天星期三<br>注：表达式的值最好是整型或者字符串；不能漏掉break；如果某个case语句后面没有接任何语句块，那么就说明这个语句块内容同下；case后要用“：”表明情况<br>3.while循环语句<br>1）while循环：while（表达式）{各种语句……}，当表达式值为true执行大括号内语句块，当表达式为false时跳出循环，例：</p>
+<p>&lt;?php<br>$a=1;<br>while($a&lt;3){<br>    $a++;    //$a=$a+1<br>    echo $a.’<br>‘;<br>}<br>?&gt;</p>
+<p>2）do…while语句：do{语句}while(表达式);，do…while至少要执行一次，例：</p>
+<p>&lt;?php<br>$a=1;<br>do{<br>    $a++;  //先加后面才会有while判断<br>    echo $a.’<br>‘;<br>}while($a&lt;3);<br>?&gt;<br>2）for循环 ：for(初始化语句;判断语句;自增（自减）){各种语句}（三个表达式位置可以放多个表达式中间用逗号隔开）<br>例：<br>&lt;?php<br>for($i=0;$i&lt;3;$i++){<br>    echo $i.’<br>‘;<br>}<br>?&gt;<br>8.流程控制（四）：特殊的流程控制语句<br>1）break语句：用于switch、for、while、do…while、foreach等语句，中断当前语句；<br>2）continue语句：只用于循环语句，跳出本次循环；<br>3）exit（）语句：结束程序，括号内可以写字符串用作提示。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/07/PHP第一篇/" data-id="cju6tz09c0003pgtsgy2qkitz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/29/css/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">css学习记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/07/PHP第一篇/">PHP第一篇</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/29/css/">css学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/27/first-blog/">HTML blog</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/14/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
