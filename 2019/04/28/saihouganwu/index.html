@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>sql万能密码注入 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我们第一期网络攻防训练营线下赛结束了，瞬间感觉自己好菜哦。刚开始近乎懵逼，直到最后学长给我们讲解，感觉我们的代码基本上都是漏洞百出的，让学长们  来分分钟就团灭了。学长给我们讲了一个sql注入语句的万能密码（’or 1#),感觉他用这个能把我们都破了。   SQL注入万能密码原理：  可以绕过数据库验证机制直接执行SQL语句。用户在使用用户名和密码登陆验证的时候，网站需要向数据发送请求，查询数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql万能密码注入">
+<meta property="og:url" content="http://yoursite.com/2019/04/28/saihouganwu/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="我们第一期网络攻防训练营线下赛结束了，瞬间感觉自己好菜哦。刚开始近乎懵逼，直到最后学长给我们讲解，感觉我们的代码基本上都是漏洞百出的，让学长们  来分分钟就团灭了。学长给我们讲了一个sql注入语句的万能密码（’or 1#),感觉他用这个能把我们都破了。   SQL注入万能密码原理：  可以绕过数据库验证机制直接执行SQL语句。用户在使用用户名和密码登陆验证的时候，网站需要向数据发送请求，查询数">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-28T12:14:58.164Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sql万能密码注入">
+<meta name="twitter:description" content="我们第一期网络攻防训练营线下赛结束了，瞬间感觉自己好菜哦。刚开始近乎懵逼，直到最后学长给我们讲解，感觉我们的代码基本上都是漏洞百出的，让学长们  来分分钟就团灭了。学长给我们讲了一个sql注入语句的万能密码（’or 1#),感觉他用这个能把我们都破了。   SQL注入万能密码原理：  可以绕过数据库验证机制直接执行SQL语句。用户在使用用户名和密码登陆验证的时候，网站需要向数据发送请求，查询数">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-saihouganwu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/28/saihouganwu/" class="article-date">
+  <time datetime="2019-04-28T11:14:55.000Z" itemprop="datePublished">2019-04-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      sql万能密码注入
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  我们第一期网络攻防训练营线下赛结束了，瞬间感觉自己好菜哦。刚开始近乎懵逼，直到最后学长给我们讲解，感觉我们的代码基本上都是漏洞百出的，让学长们<br>  来分分钟就团灭了。学长给我们讲了一个sql注入语句的万能密码（’or 1#),感觉他用这个能把我们都破了。</p>
+<h2 id="SQL注入万能密码原理："><a href="#SQL注入万能密码原理：" class="headerlink" title="  SQL注入万能密码原理："></a>  SQL注入万能密码原理：</h2><p>  可以绕过数据库验证机制直接执行SQL语句。用户在使用用户名和密码登陆验证的时候，网站需要向数据发送请求，查询数据库中的内容，查询数据库就要用到sql<br>  语句。当用户登陆时，后台执行的数据库操作（sql语句）是：   $sql = “select <em> from login where username = ‘$username’ and password<br>  =’$password’”;<br>  这样是直接将用户提交过来的数据(用户名和密码)直接拿去执行，没有进行特殊字符过滤,这时就可以用sql万能密码进行登陆。<br>  但是当输入用户名：’ or 1=1#，密码随便输。<br>  这时SQL就变成了这样：select </em> from login where username = ‘’ or 1=1#’ and password =’密码’<br>  “#”在mysql中是注释符，这样井号后面的内容将被mysql视为注释内容，这样就不会去执行了，也就是说：<br>  上边这句sql语句就等同于  select <em> from login where username = ‘’ or 1=1<br>  因为1=1永远是都是成立的，即where子句总是为真，将该sql进一步简化之后，等价于如下select语句：<br>  select </em> from login 没错，该sql语句的作用是检索login表中的所有字段。</p>
+<h2 id="几种防止sql注入的方法："><a href="#几种防止sql注入的方法：" class="headerlink" title="  几种防止sql注入的方法："></a>  几种防止sql注入的方法：</h2><p>  这是我在网上搜的，还没有进行实践。<br> 1、普通用户与系统管理员用户的权限要有严格的区分。<br>　　如果一个普通用户在使用查询语句中嵌入另一个Drop Table语句，那么是否允许执行呢?由于Drop语句关系到数据库的基本对象，故要操作这个语句用户必须有<br>相关的权限。在权限设计中，对于终端用户，即应用软件的使用者，没有必要给他们数据库对象的建立、删除等权限。那么即使在他们使用SQL语句中带有嵌入式的恶<br>意代码，由于其用户权限的限制，这些代码也将无法被执行。故应用程序在设计的时候，最好把系统管理员的用户与普通用户区分开来。如此可以最大限度的减少注入<br>式攻击对数据库带来的危害。<br>2、强迫使用参数化语句。<br>　　如果在编写SQL语句的时候，用户输入的变量不是直接嵌入到SQL语句。而是通过参数来传递这个变量的话，那么就可以有效的防治SQL注入式攻击。也就是说，用<br>户的输入绝对不能够直接被嵌入到SQL语句中。与此相反，用户的输入的内容必须进行过滤，或者使用参数化的语句来传递用户输入的变量。参数化的语句使用参数而<br>不是将用户输入变量嵌入到SQL语句中。采用这种措施，可以杜绝大部分的SQL注入式攻击。不过可惜的是，现在支持参数化语句的数据库引擎并不多。不过数据库工程<br>师在开发产品的时候要尽量采用参数化语句。<br>3、加强对用户输入的验证。<br>字符的输入内容。这有助于防止脚本注入，防止某些缓冲区溢出攻击。测试用户输入内容的大小和数据类型，强制执行适当的限制与转换。这即有助于防止有意造成的<br>缓冲区溢出，对于防治注入式攻击有比较明显的效果。<br>　　如可以使用存储过程来验证用户的输入。利用存储过程可以实现对用户输入变量的过滤，如拒绝一些特殊的符号。如以上那个恶意代码中，只要存储过程把那个分<br>号过滤掉，那么这个恶意代码也就没有用武之地了。在执行SQL语句之前，可以通过数据库的存储过程，来拒绝接纳一些特殊的符号。在不影响数据库应用的前提下，<br>应该让数据库拒绝包含以下字符的输入。如分号分隔符，它是SQL注入式攻击的主要帮凶。如注释分隔符。注释只有在数据设计的时候用的到。一般用户的查询语句中没<br>有必要注释的内容，故可以直接把他拒绝掉，通常情况下这么做不会发生意外损失。把以上这些特殊符号拒绝掉，那么即使在SQL语句中嵌入了恶意代码，他们也将毫无作为。<br>　　故始终通过测试类型、长度、格式和范围来验证用户输入，过滤用户输入的内容。这是防止SQL注入式攻击的常见并且行之有效的措施。<br>4、多多使用SQL Server数据库自带的安全参数。<br>为了减少注入式攻击对于SQLServer数据库的不良影响，在SQLServer数据库专门设计了相对安全的SQL参数。在数据库设计过程中，工程师要尽量采用这些参数来杜<br>绝恶意的SQL注入式攻击。<br>　　如在SQL Server数据库中提供了Parameters集合。这个集合提供了类型检查和长度验证的功能。如果管理员采用了Parameters这个集合的话，则用户输入的内<br>容将被视为字符值而不是可执行代码。即使用户输入的内容中含有可执行代码，则数据库也会过滤掉。因为此时数据库只把它当作普通的字符来处理。使用Parameters<br>集合的另外一个优点是可以强制执行类型和长度检查，范围以外的值将触发异常。如果用户输入的值不符合指定的类型与长度约束，就会发生异常，并报告给管理员。<br>如上面这个案例中，如果员工编号定义的数据类型为字符串型，长度为10个字符。而用户输入的内容虽然也是字符类型的数据，但是其长度达到了20个字符。则此时<br>就会引发异常，因为用户输入的内容长度超过了数据库字段长度的限制。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/28/saihouganwu/" data-id="cjv0w8lll0002vsts4anjvj0k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/14/php2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">php的函数与数组</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/28/saihouganwu/">sql万能密码注入</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/14/php2/">php的函数与数组</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/07/PHP第一篇/">PHP第一篇</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/29/css/">css学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/27/first-blog/">HTML blog</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
